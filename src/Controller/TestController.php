@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Task;
+use App\Form\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,16 +15,21 @@ class TestController extends Controller
      * @Route("/test")
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $number = mt_rand(0, 100);
+        $task = new Task();
+        $form = $this->createForm(TaskType::class, $task);
 
-        /*return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
-        );*/
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            var_dump($task);
+            exit;
+        }
 
         return $this->render('test/index.html.twig', [
-            'number' => $number
+            'task' => $task,
+            'form' => $form->createView()
         ]);
     }
 }

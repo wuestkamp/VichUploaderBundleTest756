@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    test
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
 
-    {{ number }}
+        <input type="submit" class="btn" value="Create" />
+    {{ form_end(form) }}
 {% endblock %}
