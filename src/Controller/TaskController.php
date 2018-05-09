@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use App\Service\Task\TaskHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ class TaskController extends Controller
      * @Route("/task/create", name="task_create")
      * @return Response
      */
-    public function create(Request $request, EntityManagerInterface $em)
+    public function create(Request $request, TaskHandler $taskHandler)
     {
         $task = new Task();
         $form = $this->createForm(TaskType::class, $task);
@@ -24,8 +25,7 @@ class TaskController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($task);
-            $em->flush();
+            $taskHandler->save($task);
             return $this->redirect($this->generateUrl('task_create'));
         }
 
@@ -39,15 +39,14 @@ class TaskController extends Controller
      * @Route("/task/{id}/edit", name="task_edit")
      * @return Response
      */
-    public function edit(Request $request, Task $task, EntityManagerInterface $em)
+    public function edit(Request $request, Task $task, TaskHandler $taskHandler)
     {
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($task);
-            $em->flush();
+            $taskHandler->save($task);
             return $this->redirect($this->generateUrl('task_edit', ['id' => $task->getId()]));
         }
 

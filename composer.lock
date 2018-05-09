@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6f9503a2ec23e3968fdbee23fc7c82e",
+    "content-hash": "ade1b16be65daac270689688028e4f6e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1926,7 +1926,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
