@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,8 @@ class TaskController extends Controller
      * @Route("/task/create", name="task_create")
      * @return Response
      */
-    public function create(Request $request)
+    public function create(Request $request, EntityManagerInterface $em)
     {
-        $em = $this->getDoctrine()->getManager();
-
         $task = new Task();
         $form = $this->createForm(TaskType::class, $task);
 
@@ -40,10 +39,8 @@ class TaskController extends Controller
      * @Route("/task/{id}/edit", name="task_edit")
      * @return Response
      */
-    public function edit(Request $request, Task $task)
+    public function edit(Request $request, Task $task, EntityManagerInterface $em)
     {
-        $em = $this->getDoctrine()->getManager();
-
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
