@@ -26,7 +26,7 @@ class TaskController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $taskHandler->save($task);
-            return $this->redirect($this->generateUrl('task_create'));
+            return $this->redirect($this->generateUrl('task_edit', ['id' => $task->getId()]));
         }
 
         return $this->render('task/create.html.twig', [

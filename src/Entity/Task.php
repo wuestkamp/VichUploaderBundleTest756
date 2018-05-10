@@ -9,6 +9,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
  */
 class Task
@@ -40,7 +41,7 @@ class Task
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -52,6 +53,16 @@ class Task
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * Gets triggered every time on update
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updatedAt = new \DateTime("now");
+    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance

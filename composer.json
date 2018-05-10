@@ -36,6 +36,9 @@
         "symfony/profiler-pack": "*",
         "symfony/web-server-bundle": "^4.0"
     },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/kimwue/VichUploaderBundle" }
+    ],
     "config": {
         "preferred-install": {
             "*": "dist"
