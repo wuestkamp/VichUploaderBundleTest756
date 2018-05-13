@@ -16,6 +16,9 @@ class TaskType extends AbstractType
         $builder->add('imageFile', VichFileType::class, [
             'required' => false
         ]);
+        $builder->add('imageTwoFile', VichFileType::class, [
+            'required' => false
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
