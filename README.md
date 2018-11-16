@@ -14,7 +14,7 @@ reproduce error:
 ------------
 1. on /task/1/edit enter a name with just one letter
 2. tick both or one delete box of the uploaded images
-3. click submit, you see that even with validation errors the files have been removed
+3. click submit, you see that even with validation errors the files (on filesystem!) have been removed
 
 see fix:
 ------------
@@ -23,4 +23,4 @@ see fix:
 3. on /task/1/edit upload two images and submit
 4. on /task/1/edit enter a name with just one letter
 5. tick both or one delete box of the uploaded images
-6. click submit, you see that files are not removed when validation errors occur
+6. click submit, you see that files (on filesystem!) are not removed when validation errors occur
