@@ -18,9 +18,8 @@ reproduce error:
 
 see fix:
 ------------
-1. change version of vich/uploader-bundle from dev-master to dev-756-file-remove-queue
-2. vich/uploader-bundle
+1. change version of vich/uploader-bundle from dev-master to dev-756-file-remove-queue in composer.json
+2. composer update vich/uploader-bundle
 3. on /task/1/edit upload two images and submit
-4. on /task/1/edit enter a name with just one letter
-5. tick both or one delete box of the uploaded images
-6. click submit, you see that files (on filesystem public folder) are not removed when validation errors occur
+4. on /task/1/edit enter a name with just one letter and tick both or one delete box of the uploaded images
+5. click submit, you see that files (on filesystem public folder) are not removed when validation errors occur
