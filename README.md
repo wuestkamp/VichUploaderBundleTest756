@@ -6,7 +6,7 @@ setup:
 -----------
 
 1. setup database via .env
-2. run doctrine:mig:mig
+2. run doctrine:schema:create
 2. go to /task/create
 3. enter a name and upload two image files
 
