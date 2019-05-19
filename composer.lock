@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9c396b23a6ad96df40955a77ae4c7b5",
+    "content-hash": "b2163473927e7dd7d905485e3f45a8a5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5697,16 +5697,16 @@
         },
         {
             "name": "vich/uploader-bundle",
-            "version": "1.9.2",
+            "version": "dev-756-file-remove-queue",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "e294d61ce7bc2d20cf04fc350bef7f26f00eb3f5"
+                "url": "https://github.com/wuestkamp/VichUploaderBundle.git",
+                "reference": "d5b2e4eb27870652d66e425aaca2d51e836a84b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/e294d61ce7bc2d20cf04fc350bef7f26f00eb3f5",
-                "reference": "e294d61ce7bc2d20cf04fc350bef7f26f00eb3f5",
+                "url": "https://api.github.com/repos/wuestkamp/VichUploaderBundle/zipball/d5b2e4eb27870652d66e425aaca2d51e836a84b0",
+                "reference": "d5b2e4eb27870652d66e425aaca2d51e836a84b0",
                 "shasum": ""
             },
             "require": {
@@ -5771,7 +5771,11 @@
                     "Vich\\UploaderBundle\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Vich\\TestBundle\\": "Tests/Fixtures/App/src/TestBundle/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -5787,7 +5791,10 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2019-03-29T09:48:14+00:00"
+            "support": {
+                "source": "https://github.com/wuestkamp/VichUploaderBundle/tree/756-file-remove-queue"
+            },
+            "time": "2019-05-19T13:21:12+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -6617,7 +6624,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "symfony/lts": 20
+        "symfony/lts": 20,
+        "vich/uploader-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
